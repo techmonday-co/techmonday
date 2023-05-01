@@ -14,7 +14,7 @@ export default function Index({ allPosts }) {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Tech Monday</title>
         </Head>
         <Container>
           <Intro />
@@ -23,7 +23,7 @@ export default function Index({ allPosts }) {
               title={heroPost.title}
               coverImage={heroPost.featuredImage}
               date={heroPost.date}
-              author={heroPost.author}
+              guest={heroPost.guest}
               slug={heroPost.slug}
               excerpt={heroPost.excerpt}
             />

@@ -7,7 +7,7 @@ import PostHeader from '../../components/post-header'
 import MoreStories from "../../components/more-stories"
 import SectionSeparator from "../../components/section-separator"
 import Layout from '../../components/layout'
-import { getPostBySlug, getAllPostsWithSlug } from '../../lib/api'
+import { getPodcastBySlug, getAllPodcastsWithSlug } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
@@ -36,7 +36,7 @@ export default function Post({ post, morePosts, preview }) {
                 title={post.title}
                 coverImage={post.featuredImage}
                 date={post.createdOn}
-                author={post.author}
+                guest={post.guest}
               />
               <PostBody content={post.body} />
             </article>
@@ -51,7 +51,7 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps(context) {
   
-  const data = await getPostBySlug(context.params.slug, context.preview)
+  const data = await getPodcastBySlug(context.params.slug, context.preview)
 
   return {
     props: {
@@ -65,7 +65,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+  const allPosts = await getAllPodcastsWithSlug()
 
   return {
     paths: allPosts.map((post) => {

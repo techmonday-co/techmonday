@@ -8,7 +8,7 @@ export default function HeroPost({
   coverImage,
   createdOn,
   excerpt,
-  author,
+  guest,
   slug,
 }) {
   return (
@@ -35,7 +35,7 @@ export default function HeroPost({
         </div>
         <div>
           <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
+          <Avatar name={guest.name} picture={guest.picture} />
         </div>
       </div>
     </section>

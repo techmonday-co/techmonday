@@ -1,4 +1,4 @@
-import Alert from '../components/alert'
+import Header from '../components/header'
 import Footer from '../components/footer'
 import Meta from '../components/meta'
 
@@ -6,11 +6,11 @@ export default function Layout({ preview, children }) {
   return (
     <>
       <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
+      <div className='site-wrapper overflow-hidden'>
+        <Header />
+        <div>{children}</div>
+        <Footer />
       </div>
-      <Footer />
     </>
   )
 }
