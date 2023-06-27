@@ -1,3 +1,7 @@
 .logoLink {
   line-height: 0;
 }
+
+.offCanvasMenu {
+  color: rgba(0, 0, 0, 0.8);
+}

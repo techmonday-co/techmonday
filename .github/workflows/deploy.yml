@@ -1,0 +1,30 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up .env
+      run: |
+        echo "NEXT_PUBLIC_WEBINY_API_URL=${{ secrets.NEXT_PUBLIC_WEBINY_API_URL }}" >> .env
+        echo "WEBINY_API_SECRET=${{ secrets.WEBINY_API_SECRET }}" >> .env
+
+    - name: Install and Build
+      run: |
+        yarn install
+        yarn run build
+        touch out/.nojekyll
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        token: ${{ secrets.DEPLOYMENT_TOKEN }}
+        branch: gh-pages
+        folder: out

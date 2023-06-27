@@ -1,6 +1,7 @@
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Meta from '../components/meta'
+import OffcanvasMenu from '../components/offcanvas-menu'
 
 export default function Layout({ preview, children }) {
   return (
@@ -8,8 +9,10 @@ export default function Layout({ preview, children }) {
       <Meta />
       <div className='site-wrapper overflow-hidden'>
         <Header />
-        <div>{children}</div>
+        {children}
         <Footer />
+
+        <OffcanvasMenu />
       </div>
     </>
   )

@@ -1,0 +1,18 @@
+.axil-featured-post {
+  .post-meta .post-author-avatar img {
+    width: 50px;
+  }
+
+  .post-thumbnail {
+    a div {
+      border-radius: 100%; /* this makes it circular */
+      overflow: hidden; /* to ensure the image is contained within the circle */
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      background-size: cover; /* ensures the image covers the entire container */
+      background-position: center; /* centers the image */
+      padding-bottom: 100%;
+    }
+  }
+}
