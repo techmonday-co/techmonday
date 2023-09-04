@@ -3,7 +3,13 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getHeroPosts, getFeaturedPosts, getPostsByHighLightedCategories } from '../lib/api'
+import { 
+  getHeroPosts,
+  getFeaturedPosts,
+  getPostsByHighLightedCategories,
+  getCategories,
+  getPosts
+} from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 
@@ -12,8 +18,15 @@ import HeaderOne from '../common/elements/header/HeaderOne';
 import SliderOne from '../common/components/slider/SliderOne';
 import PostSectionOne from '../common/components/post/PostSectionOne';
 import PostSectionTwo from '../common/components/post/PostSectionTwo';
+import PostSectionFour from '../common/components/post/PostSectionFour';
+import CategoryList from '../common/components/category/CategoryList';
 
-export default function Index({ heroPosts, featuredPosts, postsByHilightedCategories }) {
+export default function Index({ 
+  heroPosts,
+  featuredPosts, 
+  postsByHilightedCategories,
+  categories,
+  posts }) {
   // const heroPost = allPosts[0]
   // const morePosts = allPosts.slice(1)
   return (
@@ -23,6 +36,8 @@ export default function Index({ heroPosts, featuredPosts, postsByHilightedCatego
       <SliderOne postData={heroPosts}/>
       <PostSectionOne postData={featuredPosts}/>
       <PostSectionTwo postData={postsByHilightedCategories} adBanner={true} />
+      <CategoryList categories={categories}/>
+      <PostSectionFour postData={posts} adBanner={true} />
       {/* <Layout>
         <Head>
           <title>Tech Monday</title>
@@ -50,8 +65,16 @@ export async function getStaticProps({ preview }) {
   const heroPosts = await getHeroPosts(preview)
   const featuredPosts = await getFeaturedPosts(preview)
   const postsByHilightedCategories = await getPostsByHighLightedCategories(preview)
+  const categories = await getCategories(preview)
+  const posts = await getPosts(preview)
 
   return {
-    props: { heroPosts, featuredPosts, postsByHilightedCategories },
+    props: {
+      heroPosts,
+      featuredPosts,
+      postsByHilightedCategories,
+      categories,
+      posts
+    },
   }
 }

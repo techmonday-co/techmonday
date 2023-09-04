@@ -22,10 +22,9 @@ const SectionTitleTwo = ({title, btnText, btnUrl}) => {
       </div>
       <div className="col-lg-6 col-md-4 col-sm-4 col-12">
         <div className="see-all-topics text-start text-sm-end mt_mobile--20">
-          <Link href={btnUrl || "#"}>
-            <a className="axil-link-button">{btnText}</a>
+          <Link href={btnUrl || "#"} className="axil-link-button">
+            {btnText}
           </Link>
-
         </div>
       </div>
     </div>

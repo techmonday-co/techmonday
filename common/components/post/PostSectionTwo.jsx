@@ -14,9 +14,6 @@ const PostSectionTwo = ({ postData, adBanner, headingTitle }) => {
   const [activeNav, setActiveNav] = useState(defaultActiveCat);
   const [tabPostData, setTabPostData] = useState(defaultData);
 
-  console.log('check post data')
-  console.log(postData)
-
   const handleChange = (eventKey) => {
     setActiveNav(eventKey);
   
@@ -124,7 +121,7 @@ const PostSectionTwo = ({ postData, adBanner, headingTitle }) => {
                               <div className="post-cat">
                                 {/* <div className="post-cat-list">
                                   <Link
-                                    href={`/category/${slugify(data.cate)}`}
+                                    href={`/categories/${slugify(data.cate)}`}
                                   >
                                     <a className="hover-flip-item-wrapper">
                                       <span className="hover-flip-item">

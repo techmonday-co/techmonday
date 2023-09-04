@@ -11,7 +11,7 @@ const PostLayoutOne = ({ postData, itemShow }) => {
         {categories.map((category, index) => (
           <div key={`category-${index}`}
                className="post-cat-list">
-            <Link href={`/category/${slugify(category.slug)}`}
+            <Link href={`/categories/${slugify(category.slug)}`}
                   className="hover-flip-item-wrapper">
               <span className="hover-flip-item">
               <span data-text={category.name}>{category.name}</span>

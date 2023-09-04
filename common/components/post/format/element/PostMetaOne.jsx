@@ -25,7 +25,7 @@ const PostMetaOne = ({metaData}) => {
                 <div className="post-content">
                   <div className="post-cat">
                     <div className="post-cat-list">
-                        <Link href={`/category/${slugify(metaData.cate)}`}>
+                        <Link href={`/categories/${slugify(metaData.cate)}`}>
                             <a className="hover-flip-item-wrapper">
                                 <span className="hover-flip-item">
                                 <span data-text={metaData.cate}>{metaData.cate}</span>
