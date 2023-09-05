@@ -8,25 +8,23 @@ const WidgetPostList = ({ postData }) => {
       <div className="post-medium-block">
         {postData.slice(0, 3).map((data) => (
           <div className="content-block post-medium mb--20" key={data.slug}>
-			  {data.featureImg ? 
+			  {data.coverImage ? 
             <div className="post-thumbnail">
               <Link href={`/post/${data.slug}`}>
-                <a>
                   <Image
-                    src={data.featureImg}
+                    src={data.coverImage}
                     alt={data.title}
                     height={100}
                     width={100}
                     priority={true}
                   />
-                </a>
               </Link>
             </div>
 			:""}
             <div className="post-content">
               <h6 className="title">
-                <Link href={`/post/${data.slug}`}>
-                  <a>{data.title}</a>
+                <Link href={`/posts/${data.slug}`}>
+                  {data.title}
                 </Link>
               </h6>
               <div className="post-meta">

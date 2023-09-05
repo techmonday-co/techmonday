@@ -12,6 +12,11 @@ const WidgetSocialShare = () => {
           </a>
         </li>
         <li>
+          <a href={SocialData.yt.url}>
+            <i className={SocialData.yt.icon} />
+          </a>
+        </li>
+        {/* <li>
           <a href={SocialData.instagram.url}>
             <i className={SocialData.instagram.icon} />
           </a>
@@ -30,7 +35,7 @@ const WidgetSocialShare = () => {
           <a href={SocialData.linked.url}>
             <i className={SocialData.linked.icon} />
           </a>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

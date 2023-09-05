@@ -8,7 +8,8 @@ import {
   getFeaturedPosts,
   getPostsByHighLightedCategories,
   getCategories,
-  getPosts
+  getPosts,
+  getPopularPosts
 } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
@@ -26,7 +27,9 @@ export default function Index({
   featuredPosts, 
   postsByHilightedCategories,
   categories,
-  posts }) {
+  posts,
+  popularPosts
+ }) {
   // const heroPost = allPosts[0]
   // const morePosts = allPosts.slice(1)
   return (
@@ -37,7 +40,7 @@ export default function Index({
       <PostSectionOne postData={featuredPosts}/>
       <PostSectionTwo postData={postsByHilightedCategories} adBanner={true} />
       <CategoryList categories={categories}/>
-      <PostSectionFour postData={posts} adBanner={true} />
+      <PostSectionFour postData={posts} categories={categories} popularPosts={popularPosts} adBanner={true} />
       {/* <Layout>
         <Head>
           <title>Tech Monday</title>
@@ -67,6 +70,7 @@ export async function getStaticProps({ preview }) {
   const postsByHilightedCategories = await getPostsByHighLightedCategories(preview)
   const categories = await getCategories(preview)
   const posts = await getPosts(preview)
+  const popularPosts = await getPopularPosts(preview)
 
   return {
     props: {
@@ -74,7 +78,8 @@ export async function getStaticProps({ preview }) {
       featuredPosts,
       postsByHilightedCategories,
       categories,
-      posts
+      posts,
+      popularPosts
     },
   }
 }
