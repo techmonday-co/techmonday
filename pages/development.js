@@ -9,7 +9,9 @@ import {
   getPostsByHighLightedCategories,
   getCategories,
   getPosts,
-  getPopularPosts
+  getPopularPosts,
+  getTags,
+  getAuthors
 } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
@@ -21,6 +23,7 @@ import PostSectionOne from '../common/components/post/PostSectionOne';
 import PostSectionTwo from '../common/components/post/PostSectionTwo';
 import PostSectionFour from '../common/components/post/PostSectionFour';
 import CategoryList from '../common/components/category/CategoryList';
+import FooterOne from '../common/elements/footer/FooterOne';
 
 export default function Index({ 
   heroPosts,
@@ -28,7 +31,9 @@ export default function Index({
   postsByHilightedCategories,
   categories,
   posts,
-  popularPosts
+  popularPosts,
+  tags,
+  authors
  }) {
   // const heroPost = allPosts[0]
   // const morePosts = allPosts.slice(1)
@@ -41,25 +46,7 @@ export default function Index({
       <PostSectionTwo postData={postsByHilightedCategories} adBanner={true} />
       <CategoryList categories={categories}/>
       <PostSectionFour postData={posts} categories={categories} popularPosts={popularPosts} adBanner={true} />
-      {/* <Layout>
-        <Head>
-          <title>Tech Monday</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.featuredImage}
-              date={heroPost.date}
-              guest={heroPost.guest}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout> */}
+      <FooterOne categories={categories} tags={tags} authors={authors}/>
     </>
   )
 }
@@ -71,6 +58,8 @@ export async function getStaticProps({ preview }) {
   const categories = await getCategories(preview)
   const posts = await getPosts(preview)
   const popularPosts = await getPopularPosts(preview)
+  const tags = await getTags(preview)
+  const authors = await getAuthors(preview)
 
   return {
     props: {
@@ -79,7 +68,9 @@ export async function getStaticProps({ preview }) {
       postsByHilightedCategories,
       categories,
       posts,
-      popularPosts
+      popularPosts,
+      tags,
+      authors
     },
   }
 }
