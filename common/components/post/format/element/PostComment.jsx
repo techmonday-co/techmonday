@@ -89,7 +89,7 @@ const PostComment = () => {
               <div className="single-comment">
                 <div className="comment-img">
                 <Image
-                    src="/images/posts/author/author-b4.webp"
+                    src="/images/posts/authors/author-b4.webp"
                     alt="Rahabi Khan"
                     height={60}
                     width={60}
@@ -97,7 +97,7 @@ const PostComment = () => {
                 </div>
                 <div className="comment-inner">
                   <h6 className="commenter">
-                    <Link href={`/author/${slugify("Jone Doe")}`}>
+                    <Link href={`/authors/${slugify("Jone Doe")}`}>
                       <a className="hover-flip-item-wrapper">
                         <span className="hover-flip-item">
                           <span data-text="Jone Doe">
@@ -141,7 +141,7 @@ const PostComment = () => {
               <div className="single-comment">
                 <div className="comment-img">
                 <Image
-                    src="/images/posts/author/author-b5.webp"
+                    src="/images/posts/authors/author-b5.webp"
                     alt="Rahabi Khan"
                     height={60}
                     width={60}
@@ -149,7 +149,7 @@ const PostComment = () => {
                 </div>
                 <div className="comment-inner">
                   <h6 className="commenter">
-                    <Link href={`/author/${slugify("Fatima Jane")}`}>
+                    <Link href={`/authors/${slugify("Fatima Jane")}`}>
                       <a className="hover-flip-item-wrapper">
                         <span className="hover-flip-item">
                           <span data-text="Fatima Jane">
@@ -197,7 +197,7 @@ const PostComment = () => {
               <div className="single-comment">
                 <div className="comment-img">
                 <Image
-                    src="/images/posts/author/author-b4.webp"
+                    src="/images/posts/authors/author-b4.webp"
                     alt="Rahabi Khan"
                     height={60}
                     width={60}
@@ -205,7 +205,7 @@ const PostComment = () => {
                 </div>
                 <div className="comment-inner">
                   <h6 className="commenter">
-                    <Link href={`/author/${slugify("Jone Doe")}`}>
+                    <Link href={`/authors/${slugify("Jone Doe")}`}>
                       <a className="hover-flip-item-wrapper">
                         <span className="hover-flip-item">
                           <span data-text="Jone Doe">

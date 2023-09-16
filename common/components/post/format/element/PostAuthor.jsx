@@ -21,7 +21,7 @@ const PostAuthor = ({authors}) => {
           <div className="media-body">
             <div className="author-info">
               <h5 className="title">
-              <Link href="#"
+              <Link href={`/authors/${author.slug}`}
                     className="hover-flip-item-wrapper">
                 <span className="hover-flip-item">
                   <span data-text={author.name}>{author.name}</span>

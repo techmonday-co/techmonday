@@ -49,8 +49,8 @@ const PostLayoutOne = ({ postData, itemShow }) => {
     return (
       <h6 className="post-author-name">
         {authors.map((author, index) => (
-          <Link key={'featured-post-author-${index}'}
-                href={`/author/${slugify('test')}`}
+          <Link key={'post-layout-one-featured-post-author-${index}'}
+                href={`/authors/${author.slug}`}
                 className="hover-flip-item-wrapper">
             <span className="hover-flip-item">
               <span data-text={author.name}>

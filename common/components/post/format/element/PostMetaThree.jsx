@@ -39,7 +39,7 @@ const PostMetaThree = ({ metaData }) => {
               </div>
               <div className="content">
                 <h6 className="post-author-name">
-					<Link href={`/author/${slugify(metaData.author_name)}`}>
+					<Link href={`/authors/${slugify(metaData.author_name)}`}>
 						<a
 							className="hover-flip-item-wrapper">
 							<span className="hover-flip-item">

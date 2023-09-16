@@ -86,7 +86,7 @@ const SliderOne = ({postData}) => {
       <h6 className="post-author-name">
         {authors.map((author, index) => (
           <Link key={`author-${index}`}
-                href={`/author/${slugify('test')}`}
+                href={`/authors/${author.slug}`}
                 className='hover-flip-item-wrapper'
           >
             <span className="hover-flip-item">
