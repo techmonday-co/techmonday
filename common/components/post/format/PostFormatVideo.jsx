@@ -9,9 +9,15 @@ import PostList from "./content/PostList";
 
 const PostFormatVideo = ({ postData, allData}) => {
   function renderPostContent(content) {
+    // we are using only the content block at the moment
+    var contentBlocks = content.root.children.map((_block) => {
+      return _block.children
+    })
+    contentBlocks = [].concat(...contentBlocks)
+    
     return (
       <div className="post-content">
-        {content.map((contentBlock) => {
+        {contentBlocks.map((contentBlock) => {
           if (contentBlock.type == 'paragraph') {
             return <PostParagraph key={contentBlock.id} contentBlock={contentBlock} />
           } else if (contentBlock.type == 'image') {
