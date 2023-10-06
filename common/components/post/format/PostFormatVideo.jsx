@@ -3,7 +3,7 @@ import SidebarTwo from "../../sidebar/SidebarTwo";
 import PostMetaTwo from "./element/PostMetaTwo";
 import PostComment from "./element/PostComment";
 import PostTagShare from "./element/PostTagShare";
-import PostParagraph from "./content/PostParagraph";
+import PostText from "./content/PostText";
 import PostImage from "./content/PostImage";
 import PostList from "./content/PostList";
 
@@ -18,8 +18,8 @@ const PostFormatVideo = ({ postData, allData}) => {
     return (
       <div className="post-content">
         {contentBlocks.map((contentBlock) => {
-          if (contentBlock.type == 'paragraph') {
-            return <PostParagraph key={contentBlock.id} contentBlock={contentBlock} />
+          if (contentBlock.type == 'text') {
+            return <PostText key={contentBlock.id} contentBlock={contentBlock} />
           } else if (contentBlock.type == 'image') {
             return <PostImage key={contentBlock.id} contentBlock={contentBlock} />
           } else if (contentBlock.type == 'list') {
