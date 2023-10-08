@@ -7,12 +7,18 @@ import {
   getHeroPosts,
   getFeaturedPosts,
   getPostsByHighLightedCategories,
-  getCategories,
   getPosts,
   getPopularPosts,
+} from '../lib/api/posts'
+import {
+  getCategories,
+} from '../lib/api/categories'
+import {
   getTags,
+} from '../lib/api/tags'
+import {
   getAuthors
-} from '../lib/api'
+} from '../lib/api/authors'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 

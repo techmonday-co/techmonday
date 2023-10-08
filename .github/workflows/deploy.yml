@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - development
+      - main
   repository_dispatch:
     types: [webiny-publish]
 

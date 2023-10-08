@@ -6,7 +6,7 @@ const PostTagShare = ({postTags}) => {
     <>
       <div className="tagcloud">
         {postTags.tags ? postTags.tags.map((tag, index) => (
-          <Link href={`/tag/${slugify(tag.slug)}`} key={`post-tag-${index}`}>
+          <Link href={`/tags/${slugify(tag.slug)}`} key={`post-tag-${index}`}>
             {tag.name}
           </Link>
         )) : <></>}

@@ -7,7 +7,7 @@ import PostHeader from '../../components/post-header'
 import MoreStories from "../../components/more-stories"
 import SectionSeparator from "../../components/section-separator"
 import Layout from '../../components/layout'
-import { getPostBySlug, getAllPostsWithSlug } from '../../lib/api'
+import { getPostBySlug, getAllPostsWithSlug } from '../../lib/api/posts'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'

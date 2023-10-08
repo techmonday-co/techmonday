@@ -1,13 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  getAllAuthors, 
-  getAuthorBySlug, 
-  getPopularPosts,
-  getCategories,
-  getTags,
-  getAuthors
-} from '../../lib/api';
+import { getAuthors, getAllAuthors, getAuthorBySlug } from '../../lib/api/authors';
+import { getPopularPosts } from '../../lib/api/posts';
+import { getCategories } from '../../lib/api/categories';
+import { getTags } from '../../lib/api/tags';
 
 import HeadTitle from "../../common/elements/head/HeadTitle";
 import HeaderOne from '../../common/elements/header/HeaderOne';
