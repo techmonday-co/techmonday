@@ -21,6 +21,7 @@ export default function Author({author, categories, popularPosts, tags, authors}
               <div className="about-author">
                 <div className="media">
                   <div className="thumbnail">
+                    {author.picture ?
                     <Link href="#">
                       <Image
                         src={author.picture}
@@ -30,6 +31,8 @@ export default function Author({author, categories, popularPosts, tags, authors}
                         priority={true}
                       />
                     </Link>
+                    : ''
+                    }
                   </div>
                   <div className="media-body">
                     <div className="author-info">

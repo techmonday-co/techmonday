@@ -17,13 +17,13 @@ const PostFormatVideo = ({ postData, allData}) => {
     
     return (
       <div className="post-content">
-        {contentBlocks.map((contentBlock) => {
+        {contentBlocks.map((contentBlock, index) => {
           if (contentBlock.type == 'text') {
-            return <PostText key={contentBlock.id} contentBlock={contentBlock} />
+            return <PostText key={`content-${index}`} contentBlock={contentBlock} />
           } else if (contentBlock.type == 'image') {
-            return <PostImage key={contentBlock.id} contentBlock={contentBlock} />
+            return <PostImage key={`content-${index}`} contentBlock={contentBlock} />
           } else if (contentBlock.type == 'list') {
-            return <PostList key={contentBlock.id} contentBlock={contentBlock} />
+            return <PostList key={`content-${index}`} contentBlock={contentBlock} />
           }
         })}
       </div>
