@@ -38,34 +38,6 @@ export default function Post({ post, morePosts, preview }) {
       <HeadTitle pageTitle={post?.title} />
       <PostFormatHandler />
     </>
-    // <Layout preview={preview}>
-    //   <Container>
-    //     <Header />
-    //     {router.isFallback ? (
-    //       <PostTitle>Loading…</PostTitle>
-    //     ) : (
-    //       <>
-    //         <article className="mb-32">
-    //           <Head>
-    //             <title>
-    //               {post.title} | Next.js Blog Example with {CMS_NAME}
-    //             </title>
-    //             <meta property="og:image" content={post.featuredImage} />
-    //           </Head>
-    //           <PostHeader
-    //             title={post.title}
-    //             coverImage={post.featuredImage}
-    //             date={post.createdOn}
-    //             guest={post.guest}
-    //           />
-    //           <PostBody content={post.body} />
-    //         </article>
-    //         <SectionSeparator />
-    //         {morePosts.data.length > 0 && <MoreStories posts={morePosts.data} />}
-    //       </>
-    //     )}
-    //   </Container>
-    // </Layout>
   )
 }
 

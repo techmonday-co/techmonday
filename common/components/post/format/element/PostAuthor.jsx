@@ -9,14 +9,14 @@ const PostAuthor = ({authors}) => {
              className="about-author">
           <div className="media">
             <div className="thumbnail">
-              <Link href="#">
+              {author.picture ? <Link href="#">
                 <Image
                   src={author.picture}
                   alt={author.name}
                   height={105}
                   width={105}
                 />
-              </Link>
+              </Link> : '' }
             </div>
           <div className="media-body">
             <div className="author-info">

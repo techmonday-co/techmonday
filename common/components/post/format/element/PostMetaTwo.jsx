@@ -29,12 +29,12 @@ const PostMetaTwo = ({metaData}) => {
         {authors.map((author, index) => (
           <div key={`meta-author-picture-${index}`}
                className="post-author-avatar border-rounded">
-            <Image
+            {author.picture ? <Image
               src={author.picture}
               alt={author.name}
               height={50}
               width={50}
-            />
+            /> : ''}
           </div>
         ))}
       </>
