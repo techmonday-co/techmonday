@@ -10,7 +10,7 @@ const WidgetPostList = ({ postData }) => {
           <div className="content-block post-medium mb--20" key={data.slug}>
 			  {data.coverImage ? 
             <div className="post-thumbnail">
-              <Link href={`/post/${data.slug}`}>
+              <Link href={`/posts/${data.slug}`}>
                   <Image
                     src={data.coverImage}
                     alt={data.title}

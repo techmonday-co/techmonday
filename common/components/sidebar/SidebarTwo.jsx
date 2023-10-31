@@ -7,12 +7,13 @@ import WidgetSearch from "./WidgetSearch";
 import WidgetSocialShare from "./WidgetSocialShare";
 import WidgetTags from "./WidgetTags";
 
-const SidebarTwo = ({ dataPost, tagData }) => {
+const SidebarTwo = ({ dataPost, tagData, categories }) => {
   return (
     <div className="sidebar-inner">
-      <WidgetCategory catData={dataPost} />
-      <WidgetSearch />
-      <WidgetPostList postData={dataPost} />
+      <WidgetCategory categories={categories}/>
+      {/* <WidgetSearch /> */}
+      <WidgetPostList postData={dataPost}/>
+      {/* 
       <WidgetNewsletter />
       <WidgetAd
         url="https://example.com/"
@@ -20,7 +21,9 @@ const SidebarTwo = ({ dataPost, tagData }) => {
         height={236}
         width={390}
       />
+      */}
       <WidgetSocialShare />
+      {/*
       <WidgetInstagramPost />
       <WidgetTags postTag={tagData}/>
       <WidgetAd
@@ -28,7 +31,7 @@ const SidebarTwo = ({ dataPost, tagData }) => {
         image="/images/add-banner/banner-02.webp"
         height={778}
         width={390}
-      />
+      /> */}
     </div>
   );
 };

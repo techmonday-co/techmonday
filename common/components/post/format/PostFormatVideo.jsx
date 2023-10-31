@@ -7,7 +7,7 @@ import PostText from "./content/PostText";
 import PostImage from "./content/PostImage";
 import PostList from "./content/PostList";
 
-const PostFormatVideo = ({ postData, allData}) => {
+const PostFormatVideo = ({ postData, allData, categories, popularPosts}) => {
   function renderPostContent(content) {
     // we are using only the content block at the moment
     var contentBlocks = content.root.children.map((_block) => {
@@ -52,7 +52,7 @@ const PostFormatVideo = ({ postData, allData}) => {
               </div>
             </div>
             <div className="col-lg-4">
-              {/* <SidebarTwo dataPost={allData} tagData={postData}/> */}
+              <SidebarTwo dataPost={popularPosts} tagData={postData} categories={categories}/>
             </div>
           </div>
         </div>
