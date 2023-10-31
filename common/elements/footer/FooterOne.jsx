@@ -6,55 +6,11 @@ const FooterOne = ({categories, tags, authors}) => {
     var colorMode = window.localStorage.getItem('color-mode');
   }
 
-  function renderCategories() {
-    return (
-      <div className="footer-widget">
-        <h2 className="title">Categories</h2>
-        <div className="inner">
-          <ul className="ft-menu-list">
-            { categories.map((category, index) => {
-              return (
-                <li key={`footer-category-${index}`}>
-                  <Link href={`/categories/${category.slug}`}>
-                    {category.name}
-                  </Link>
-                </li>
-              )
-            })}
-            <li>
-              <a href="/categories">All Categories</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    )
-  }
-
-  function renderTags() {
-    return (
-      <div className="footer-widget">
-        <h2 className="title">Trending</h2>
-        <div className="inner">
-          <ul className="ft-menu-list">
-            { tags.map((tag, index) => {
-              return (
-                <li key={`footer-tag-${index}`}>
-                  <Link href={`/tags/${tag.slug}`}>
-                    {tag.name}
-                  </Link>
-                </li>
-              )
-            })}
-            <li>
-              <a href="/tags">All Topics</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    )
-  }
-
   function renderCollection(name, collection, collectionName, allCollectionName) {
+    if (collection === undefined) {
+      return <></>;
+    }
+
     return (
       <div className="footer-widget">
         <h2 className="title">{collectionName}</h2>
@@ -156,7 +112,7 @@ const FooterOne = ({categories, tags, authors}) => {
           <div className="row">
             <div className="col-lg-4 col-md-4">
               <div className="logo">
-              <Link href="/">
+                <Link href="/">
                   <Image
                     className="dark-logo"
                     src={colorMode === "Dark" ? "/images/logo.svg" : "/images/logo.svg"}
