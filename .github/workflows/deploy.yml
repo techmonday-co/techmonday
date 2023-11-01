@@ -17,6 +17,7 @@ jobs:
     - name: Set up .env
       run: |
         echo "NEXT_PUBLIC_WEBINY_API_URL=${{ secrets.NEXT_PUBLIC_WEBINY_API_URL }}" >> .env
+        echo "NEXT_PUBLIC_GTM_KEY=${{ secrets.NEXT_PUBLIC_GTM_KEY }}" >> .env
         echo "WEBINY_API_SECRET=${{ secrets.WEBINY_API_SECRET }}" >> .env
 
     - name: Install and Build
