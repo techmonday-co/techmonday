@@ -3,7 +3,6 @@ import Link from "next/link";
 import {slugify} from '../../../../utils';
 
 const PostMetaTwo = ({metaData}) => {
-
   function renderCategories(categories) {
     return (
       <div className="post-cat">
@@ -78,7 +77,7 @@ const PostMetaTwo = ({metaData}) => {
                         { renderAuthorsName(metaData.authors) }
                         <ul className="post-meta-list">
                           <li>{metaData.date}</li>
-                          <li>{metaData.post_views}</li>
+                          <li>{metaData.pageViews} Views</li>
                         </ul>
                       </div>
                     </div>

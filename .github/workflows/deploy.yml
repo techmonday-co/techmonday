@@ -19,6 +19,10 @@ jobs:
         echo "NEXT_PUBLIC_WEBINY_API_URL=${{ secrets.NEXT_PUBLIC_WEBINY_API_URL }}" >> .env
         echo "NEXT_PUBLIC_GTM_KEY=${{ secrets.NEXT_PUBLIC_GTM_KEY }}" >> .env
         echo "WEBINY_API_SECRET=${{ secrets.WEBINY_API_SECRET }}" >> .env
+        echo "NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL=${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL }}" >> .env
+        echo "NEXT_PUBLIC_GOOGLE_CLIENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}" >> .env
+        echo "NEXT_PUBLIC_GOOGLE_PRIVATE_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY }}" >> .env
+        echo "NEXT_PUBLIC_GOOGLE_ANALYTICS_PROPERTY=${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_PROPERTY }}" >> .env
 
     - name: Install and Build
       run: |

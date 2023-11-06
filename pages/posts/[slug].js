@@ -11,15 +11,14 @@ import { getPostBySlug, getAllPostsWithSlug, getPopularPosts } from '../../lib/a
 import { getAuthors } from '../../lib/api/authors';
 import { getCategories } from '../../lib/api/categories';
 import { getTags } from '../../lib/api/tags';
-import PostTitle from '../../components/post-title'
-import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
+import getPageViews from '../../lib/api/pageViews'
 
 import HeaderOne from '../../common/elements/header/HeaderOne';
 import HeadTitle from '../../common/elements/head/HeadTitle';
 import PostFormatStandard from '../../common/components/post/format/PostFormatStandard';
 import PostFormatVideo from '../../common/components/post/format/PostFormatVideo';
 import FooterOne from '../../common/elements/footer/FooterOne';
+
 
 export default function Post({ post, morePosts, preview, categories, popularPosts, authors, tags }) {
   const router = useRouter()
@@ -29,7 +28,12 @@ export default function Post({ post, morePosts, preview, categories, popularPost
 
   const PostFormatHandler = () => {
     if (post?.format.name == 'video') {
-      return <PostFormatVideo postData={post} allData={morePosts} categories={categories} popularPosts={popularPosts}/>
+      return  <PostFormatVideo 
+                postData={post} 
+                allData={morePosts} 
+                categories={categories} 
+                popularPosts={popularPosts}
+              />
     } else {
       return <></>
       // return <PostFormatStandard postData={post} allData={morePosts}/>
@@ -60,12 +64,14 @@ export async function getStaticProps({params, preview}) {
   const popularPosts = await getPopularPosts(preview)
   const tags = await getTags(preview)
   const authors = await getAuthors(preview)
+  const pageViews = await getPageViews(`/posts/${params.slug}`)
 
   return {
     props: {
       preview: preview ?? null,
       post: {
         ...data.post.data,
+        ...pageViews
       },
       morePosts: data.morePosts,
       categories,
