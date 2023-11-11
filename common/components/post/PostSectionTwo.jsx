@@ -81,14 +81,14 @@ const PostSectionTwo = ({ postData, adBanner, headingTitle }) => {
       <div className="wrapper">
         <div className="container">
           {adBanner === true ?
-            <div className="row">
-              <div className="col-lg-12">
-                <AddBanner
-                  img="/images/add-banner/banner-03.webp"
-                  pClass="mb--30"
-                />
-              </div>
-            </div>
+            <>
+              <ins className="adsbygoogle"
+                style={{display: "block", marginBottom: '1rem'}}
+                data-ad-client="ca-pub-5063470115459401"
+                data-ad-slot="7876194430"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            </>
           : ""
           }
 

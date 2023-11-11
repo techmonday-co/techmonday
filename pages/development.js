@@ -3,6 +3,7 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
+import { useEffect } from 'react';
 import { 
   getHeroPosts,
   getFeaturedPosts,
@@ -41,8 +42,13 @@ export default function Index({
   tags,
   authors
  }) {
-  // const heroPost = allPosts[0]
-  // const morePosts = allPosts.slice(1)
+
+  useEffect(() => {
+    if (window.adsbygoogle) {
+      window.adsbygoogle.push({});
+    }
+  }, [])
+
   return (
     <>
       <HeadTitle pageTitle="Tech Monday" />

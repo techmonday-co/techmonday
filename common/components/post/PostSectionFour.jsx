@@ -8,7 +8,14 @@ const PostSectionFour = ({postData, popularPosts, categories, adBanner}) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-xl-8">
-            {adBanner === true ? <AddBanner img="/images/add-banner/banner-01.webp" height="210" width="810" /> : ""
+            { adBanner === true ? 
+              <ins className="adsbygoogle"
+                style={{display: 'block', marginBottom: '1rem'}}
+                data-ad-client="ca-pub-5063470115459401"
+                data-ad-slot="6814432190"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+              : ""
             }
             <PostLayoutTwo dataPost={postData} show="5"/>
           </div>
