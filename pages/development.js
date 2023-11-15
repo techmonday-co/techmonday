@@ -57,7 +57,7 @@ export default function Index({
       <PostSectionOne postData={featuredPosts}/>
       <PostSectionTwo postData={postsByHilightedCategories} adBanner={true} />
       <CategoryList categories={categories}/>
-      <PostSectionFour postData={posts} categories={categories} popularPosts={popularPosts} adBanner={true} />
+      <PostSectionFour postData={posts.data} categories={categories} popularPosts={popularPosts} adBanner={true} />
       <FooterOne categories={categories} tags={tags} authors={authors}/>
     </>
   )
@@ -68,7 +68,7 @@ export async function getStaticProps({ preview }) {
   const featuredPosts = await getFeaturedPosts(preview)
   const postsByHilightedCategories = await getPostsByHighLightedCategories(preview)
   const categories = await getCategories(preview)
-  const posts = await getPosts(preview)
+  const posts = await getPosts({perPage: 6})
   const popularPosts = await getPopularPosts(preview)
   const tags = await getTags(preview)
   const authors = await getAuthors(preview)
