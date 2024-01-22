@@ -10,7 +10,6 @@ import { getTags } from '../../lib/api/tags';
 import PostLayoutTwo from '../../common/components/post/layout/PostLayoutTwo';
 
 export default function Posts({posts, categories, popularPosts, tags, authors}) {
-  console.log(posts)
   return (
     <>
       <HeadTitle pageTitle="All Podcasts" />
@@ -33,7 +32,7 @@ export default function Posts({posts, categories, popularPosts, tags, authors}) 
 }
 
 export async function getStaticProps() {
-  const posts = await getPosts({perPage: 10})
+  const posts = await getPosts({perPage: 10, page: 1})
   const categories = await getCategories()
   const popularPosts = await getPopularPosts()
   const tags = await getTags(false)
