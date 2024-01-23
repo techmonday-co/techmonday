@@ -9,7 +9,9 @@ import { getPostCount, getPosts, getPopularPosts } from '../../../lib/api/posts'
 import { getAuthors } from '../../../lib/api/authors';
 import { getTags } from '../../../lib/api/tags';
 
-export default function Posts({posts, categories, popularPosts, tags, authors}) {
+export default function Posts({posts, categories, popularPosts, tags, authors, pageCount, currentPage}) {
+  console.log("debug Posts")
+  console.log(pageCount)
   return (
     <>
       <HeadTitle pageTitle="All Podcasts" />
@@ -18,7 +20,7 @@ export default function Posts({posts, categories, popularPosts, tags, authors}) 
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-xl-8">
-              {(posts && posts.data) ? <PostLayoutTwo dataPost={posts.data} /> : ''}
+              {(posts && posts.data) ? <PostLayoutTwo dataPost={posts.data} pageCount={pageCount} currentPage={currentPage} /> : ''}
             </div>
             <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
               {(popularPosts && categories) ? <SidebarOne dataPost={popularPosts} categories={categories}/> : ''}
@@ -32,12 +34,16 @@ export default function Posts({posts, categories, popularPosts, tags, authors}) 
 }
 
 export async function getStaticProps({params}) {
-  // console.log('building page ' + params.pageNumber)
   const posts = await getPosts({perPage: 10, page: parseInt(params.pageNumber)})
   const categories = await getCategories()
   const popularPosts = await getPopularPosts()
   const tags = await getTags(false)
-  const authors = await getAuthors(false) 
+  const authors = await getAuthors(false)
+  
+  const postCount = await getPostCount()
+  const pageCount = calculateTotalPages(postCount, 10)
+
+  const currentPage = params.pageNumber
 
   return {
     props: {
@@ -46,6 +52,8 @@ export async function getStaticProps({params}) {
       popularPosts,
       tags,
       authors,
+      pageCount,
+      currentPage,
     }
   }
 }
@@ -53,17 +61,18 @@ export async function getStaticProps({params}) {
 export async function getStaticPaths() {
   // find a way to get all pages
   const postCount = await getPostCount()
-  const totalPages = calculateTotalPages(postCount, 10)
+  const pageCount = calculateTotalPages(postCount, 10)
 
   // Create an array from 1 to totalPages
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => (i + 1).toString());
+  const pageNumbers = Array.from({ length: pageCount }, (_, i) => (i + 1).toString());
   // console.log(pageNumbers)
 
   return {
     paths: pageNumbers.map((pageNumber) => {
       return {
         params: {
-          pageNumber
+          pageNumber,
+          pageCount
         },
       }
     }),

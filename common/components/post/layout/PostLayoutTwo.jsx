@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ReactPaginate from 'react-paginate';
 import { slugify } from "../../../utils";
-const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => { 
+const PostLayoutTwo = ({ dataPost, postStart, show, bgColor, pageCount = 1, currentPage = 1 }) => { 
   if (!dataPost) {dataPost = []}
 
   function renderCategories(categories) {
@@ -117,13 +117,14 @@ const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => {
       <ReactPaginate
         previousLabel={<i className="fas fa-arrow-left"></i>}
         nextLabel={<i className="fas fa-arrow-right"></i>}
-        pageCount={3}
+        pageCount={pageCount}
         onPageChange={changePage}
         containerClassName={"pagination"}
         previousLinkClassName={"prev"}
         nextLinkClassName={"next"}
         disabledClassName={"disabled"}
         activeClassName={"current"}
+        forcePage={currentPage - 1}
       />
     </>
   );

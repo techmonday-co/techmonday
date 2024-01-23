@@ -4,12 +4,12 @@ import SidebarOne from '../../common/components/sidebar/SidebarOne';
 import FooterOne from '../../common/elements/footer/FooterOne';
 
 import { getCategories } from '../../lib/api/categories';
-import { getPosts, getPopularPosts } from '../../lib/api/posts'
+import { getPosts, getPopularPosts, getPostCount } from '../../lib/api/posts'
 import { getAuthors } from '../../lib/api/authors';
 import { getTags } from '../../lib/api/tags';
 import PostLayoutTwo from '../../common/components/post/layout/PostLayoutTwo';
 
-export default function Posts({posts, categories, popularPosts, tags, authors}) {
+export default function Posts({posts, categories, popularPosts, tags, authors, pageCount, currentPage}) {
   return (
     <>
       <HeadTitle pageTitle="All Podcasts" />
@@ -18,7 +18,7 @@ export default function Posts({posts, categories, popularPosts, tags, authors}) 
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-xl-8">
-              <PostLayoutTwo dataPost={posts.data} />
+              <PostLayoutTwo dataPost={posts.data} pageCount={pageCount} currentPage={currentPage} />
             </div>
             <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
               <SidebarOne dataPost={popularPosts} categories={categories}/>
@@ -38,6 +38,11 @@ export async function getStaticProps() {
   const tags = await getTags(false)
   const authors = await getAuthors(false)
 
+  const postCount = await getPostCount()
+  const pageCount = calculateTotalPages(postCount, 10)
+
+  const currentPage = 1
+
   return {
     props: {
       posts,
@@ -45,6 +50,12 @@ export async function getStaticProps() {
       popularPosts,
       tags,
       authors,
+      pageCount,
+      currentPage,
     }
   }
+}
+
+function calculateTotalPages(totalCount, perPage) {
+  return Math.ceil(totalCount / perPage);
 }
