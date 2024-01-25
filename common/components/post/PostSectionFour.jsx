@@ -2,7 +2,7 @@ import AddBanner from "../ad-banner/AddBanner";
 import SidebarOne from "../sidebar/SidebarOne";
 import PostLayoutTwo from "./layout/PostLayoutTwo";
 
-const PostSectionFour = ({postData, popularPosts, categories, adBanner}) => {
+const PostSectionFour = ({postData, popularPosts, categories, adBanner, contentListLink = '', contentListLinkText = ''}) => {
   return (
     <div className="axil-post-list-area post-listview-visible-color axil-section-gap bg-color-white">
       <div className="container">
@@ -17,7 +17,7 @@ const PostSectionFour = ({postData, popularPosts, categories, adBanner}) => {
                 data-full-width-responsive="true"></ins>
               : ""
             }
-            <PostLayoutTwo dataPost={postData}/>
+            <PostLayoutTwo dataPost={postData} contentListLink={contentListLink} contentListLinkText={contentListLinkText} />
           </div>
           <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
             <SidebarOne dataPost={popularPosts} categories={categories}/>

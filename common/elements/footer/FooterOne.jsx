@@ -39,7 +39,7 @@ const FooterOne = ({categories, tags, authors}) => {
       <div className="footer-mainmenu">
         <div className="container">
           <div className="row">
-            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
+            {/* <div className="col-lg-2 col-md-6 col-sm-6 col-12">
               <div className="footer-widget">
                 <h2 className="title">Program</h2>
                 <div className="inner">
@@ -59,18 +59,18 @@ const FooterOne = ({categories, tags, authors}) => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="col-lg-2 col-md-6 col-sm-6 col-12">
               { renderCollection('categories', categories, 'Categories', 'All Categories') }
             </div>
-            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
+            {/* <div className="col-lg-2 col-md-6 col-sm-6 col-12">
               { renderCollection('tags', tags, 'Trending', 'All Topics') }
-            </div>
+            </div> */}
             <div className="col-lg-2 col-md-6 col-sm-6 col-12">
               { renderCollection('authors', authors, 'Author', 'All Authors')}
             </div>
             
-            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
+            {/* <div className="col-lg-2 col-md-6 col-sm-6 col-12">
               <div className="footer-widget">
                 <h2 className="title">Event</h2>
                 <div className="inner">
@@ -84,7 +84,7 @@ const FooterOne = ({categories, tags, authors}) => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="col-lg-2 col-md-6 col-sm-6 col-12">
               <div className="footer-widget">
                 <h2 className="title">About</h2>
@@ -94,14 +94,16 @@ const FooterOne = ({categories, tags, authors}) => {
                       <a href="#">Contact Us</a>
                     </li>
                     <li>
-                      <a href="#">Facebook Page</a>
+                      <a href="https://www.facebook.com/techmonday.co">Facebook Page</a>
                     </li>
                     <li>
-                      <a href="#">Youtube Channel</a>
+                      <a href="https://www.youtube.com/watch?v=eGtAVP-Kwdg&list=PL82kn57c7yOdeptwxg8eMF97K_GtcftP4">Youtube Channel</a>
                     </li>
                   </ul>
                 </div>
               </div>
+            </div>
+            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
             </div>
           </div>
         </div>
@@ -134,7 +136,7 @@ const FooterOne = ({categories, tags, authors}) => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.youtube.com/techmonday">
+                    <a href="https://www.youtube.com/watch?v=eGtAVP-Kwdg&list=PL82kn57c7yOdeptwxg8eMF97K_GtcftP4">
                       <i className="fab fa-youtube" />
                     </a>
                   </li>

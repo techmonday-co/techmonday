@@ -1,8 +1,3 @@
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
 import { useEffect } from 'react';
 import { 
   getHeroPosts,
@@ -20,8 +15,6 @@ import {
 import {
   getAuthors
 } from '../lib/api/authors'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
 
 import HeadTitle from '../common/elements/head/HeadTitle';
 import HeaderOne from '../common/elements/header/HeaderOne';
@@ -44,9 +37,9 @@ export default function Index({
  }) {
 
   useEffect(() => {
-    if (window.adsbygoogle) {
-      window.adsbygoogle.push({});
-    }
+    // if (window.adsbygoogle) {
+    //   window.adsbygoogle.push({});
+    // }
   }, [])
 
   return (
@@ -57,7 +50,14 @@ export default function Index({
       <PostSectionOne postData={featuredPosts}/>
       <PostSectionTwo postData={postsByHilightedCategories} adBanner={true} />
       <CategoryList categories={categories}/>
-      <PostSectionFour postData={posts.data} categories={categories} popularPosts={popularPosts} adBanner={true} />
+      <PostSectionFour 
+        postData={posts.data}
+        categories={categories}
+        popularPosts={popularPosts}
+        adBanner={false}
+        contentListLink='/posts'
+        contentListLinkText='ดูบทความทั้งหมด'
+      />
       <FooterOne categories={categories} tags={tags} authors={authors}/>
     </>
   )

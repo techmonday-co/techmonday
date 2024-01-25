@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ReactPaginate from 'react-paginate';
 import { slugify } from "../../../utils";
-const PostLayoutTwo = ({ dataPost, postStart, show, bgColor, pageCount = 1, currentPage = 1 }) => { 
+const PostLayoutTwo = ({ dataPost, postStart, show, bgColor, contentListLink = '', contentListLinkText = '', pageCount = 1, currentPage = 1 }) => { 
   if (!dataPost) {dataPost = []}
 
   function renderCategories(categories) {
@@ -38,6 +38,38 @@ const PostLayoutTwo = ({ dataPost, postStart, show, bgColor, pageCount = 1, curr
         ))}
       </h6>
     )
+  }
+
+  function renderPaginate() {
+    if (contentListLink !== "") {
+      return (
+        <div className='mt-4 text-sm-end'>
+          <Link 
+            href={contentListLink}
+            className='see-all-topics'
+          >
+            {contentListLinkText}
+          </Link>
+        </div>
+      )
+    } else {
+      if (pageCount > 1) {
+        return (
+          <ReactPaginate
+            previousLabel={<i className="fas fa-arrow-left"></i>}
+            nextLabel={<i className="fas fa-arrow-right"></i>}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"pagination"}
+            previousLinkClassName={"prev"}
+            nextLinkClassName={"next"}
+            disabledClassName={"disabled"}
+            activeClassName={"current"}
+            forcePage={currentPage - 1}
+          />
+        )
+      }
+    }
   }
 
   const changePage = ({selected}) => {
@@ -114,18 +146,7 @@ const PostLayoutTwo = ({ dataPost, postStart, show, bgColor, pageCount = 1, curr
         </div>
       ))}
 
-      <ReactPaginate
-        previousLabel={<i className="fas fa-arrow-left"></i>}
-        nextLabel={<i className="fas fa-arrow-right"></i>}
-        pageCount={pageCount}
-        onPageChange={changePage}
-        containerClassName={"pagination"}
-        previousLinkClassName={"prev"}
-        nextLinkClassName={"next"}
-        disabledClassName={"disabled"}
-        activeClassName={"current"}
-        forcePage={currentPage - 1}
-      />
+      { renderPaginate() }
     </>
   );
 };
