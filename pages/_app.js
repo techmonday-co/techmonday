@@ -16,6 +16,6 @@ export default function MyApp({ Component, pageProps }) {
         })(window,document,'script','dataLayer','${GTM_KEY}');
       `}
     </Script>
-    <Component {...pageProps} />;
+    <Component {...pageProps} />
   </>
 }

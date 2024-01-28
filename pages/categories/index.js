@@ -28,7 +28,7 @@ export default function Index({
   posts,
   popularPosts,
   tags,
-  authors
+  trendingAuthors
  }) {
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function Index({
         contentListLink='/posts'
         contentListLinkText='ดูบทความทั้งหมด'
       />
-      <FooterOne categories={categories} tags={tags} authors={authors}/>
+      <FooterOne categories={categories} tags={tags} authors={trendingAuthors}/>
     </>
   )
 }
@@ -62,7 +62,7 @@ export async function getStaticProps({ preview }) {
   const posts = await getPosts({perPage: 6})
   const popularPosts = await getPopularPosts(preview)
   const tags = await getTags(preview)
-  const authors = await getAuthors(preview)
+  const trendingAuthors = await getAuthors({perPage: 6, trending: true})
 
   return {
     props: {
@@ -72,7 +72,7 @@ export async function getStaticProps({ preview }) {
       posts,
       popularPosts,
       tags,
-      authors
+      trendingAuthors: trendingAuthors.data
     },
   }
 }

@@ -64,9 +64,9 @@ const MobileMenu = ({menuShow, menuHide}) => {
              </li>
             ))}
         </ul>
-        </div>
       </div>
-    );
+    </div>
+  )
 }
  
 export default MobileMenu;

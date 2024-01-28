@@ -1,15 +1,16 @@
-import HeadTitle from '../../common/elements/head/HeadTitle';
-import HeaderOne from '../../common/elements/header/HeaderOne';
-import SidebarOne from '../../common/components/sidebar/SidebarOne';
-import FooterOne from '../../common/elements/footer/FooterOne';
-
 import { getCategories } from '../../lib/api/categories';
 import { getPosts, getPopularPosts, getPostCount } from '../../lib/api/posts'
 import { getAuthors } from '../../lib/api/authors';
 import { getTags } from '../../lib/api/tags';
+import { calculateTotalPages } from '../../lib/utils/pagination';
+
+import HeadTitle from '../../common/elements/head/HeadTitle';
+import HeaderOne from '../../common/elements/header/HeaderOne';
+import SidebarOne from '../../common/components/sidebar/SidebarOne';
+import FooterOne from '../../common/elements/footer/FooterOne';
 import PostLayoutTwo from '../../common/components/post/layout/PostLayoutTwo';
 
-export default function Posts({posts, categories, popularPosts, tags, authors, pageCount, currentPage}) {
+export default function Posts({posts, categories, popularPosts, tags, trendingAuthors, pageCount, currentPage}) {
   return (
     <>
       <HeadTitle pageTitle="All Podcasts" />
@@ -26,7 +27,7 @@ export default function Posts({posts, categories, popularPosts, tags, authors, p
           </div>
         </div>
       </div>
-      <FooterOne categories={categories} tags={tags} authors={authors}/>
+      <FooterOne categories={categories} tags={tags} authors={trendingAuthors}/>
     </>
   )
 }
@@ -36,7 +37,7 @@ export async function getStaticProps() {
   const categories = await getCategories()
   const popularPosts = await getPopularPosts()
   const tags = await getTags(false)
-  const authors = await getAuthors(false)
+  const trendingAuthors = await getAuthors({perPage: 6, trending: true})
 
   const postCount = await getPostCount()
   const pageCount = calculateTotalPages(postCount, 10)
@@ -49,13 +50,10 @@ export async function getStaticProps() {
       categories,
       popularPosts,
       tags,
-      authors,
+      trendingAuthors: trendingAuthors.data,
       pageCount,
       currentPage,
     }
   }
 }
 
-function calculateTotalPages(totalCount, perPage) {
-  return Math.ceil(totalCount / perPage);
-}

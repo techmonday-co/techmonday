@@ -25,7 +25,7 @@ const HeaderOne = ({pClass, darkLogo, lightLogo, postData}) => {
       <header className={`header axil-header ${pClass || ""}`}>
         <div className="header-wrap">
           <div className="row justify-content-between align-items-center">
-            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-12">
+            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-6">
               <div className="logo">
                 <Link href="/">
                   <Image
@@ -45,9 +45,9 @@ const HeaderOne = ({pClass, darkLogo, lightLogo, postData}) => {
                 </nav>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-8 col-md-8 col-sm-9 col-12">
+            <div className="col-xl-3 col-lg-8 col-md-8 col-sm-9 col-6">
               <div className="header-search text-end d-flex align-items-center">
-                <form className="header-search-form d-sm-block d-none">
+                <form className="header-search-form d-sm-block d-block">
                   {/* <div className="axil-search form-group">
                     <button type="submit" className="search-button">
                       <i className="fal fa-search" />

@@ -11,7 +11,7 @@ import PostLayoutTwo from '../../common/components/post/layout/PostLayoutTwo';
 import SidebarOne from '../../common/components/sidebar/SidebarOne';
 import FooterOne from '../../common/elements/footer/FooterOne';
 
-export default function Author({author, categories, popularPosts, tags, authors}) {
+export default function Author({author, categories, popularPosts, tags, trendingAuthors}) {
   const renderAuthor = () => {
     return (
       <div className="axil-author-area axil-author-banner bg-color-grey">
@@ -102,7 +102,7 @@ export default function Author({author, categories, popularPosts, tags, authors}
       <HeaderOne postData={[]} />
       { renderAuthor() }
       { renderAuthorPosts() }
-      <FooterOne categories={categories} tags={tags} authors={authors}/>
+      <FooterOne categories={categories} tags={tags} authors={trendingAuthors}/>
     </>
   )
 }
@@ -112,14 +112,14 @@ export async function getStaticProps({ params, preview }) {
   const categories = await getCategories(preview)
   const popularPosts = await getPopularPosts(preview)
   const tags = await getTags(preview)
-  const authors = await getAuthors(preview)
+  const trendingAuthors = await getAuthors({perPage: 6, trending: true})
   return {
     props: {
       author,
       categories,
       popularPosts,
       tags,
-      authors
+      trendingAuthors: trendingAuthors.data
     }
   }
 }

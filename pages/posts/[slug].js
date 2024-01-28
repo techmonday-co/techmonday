@@ -20,7 +20,7 @@ import PostFormatVideo from '../../common/components/post/format/PostFormatVideo
 import FooterOne from '../../common/elements/footer/FooterOne';
 
 
-export default function Post({ post, morePosts, preview, categories, popularPosts, authors, tags }) {
+export default function Post({ post, morePosts, preview, categories, popularPosts, trendingAuthors, tags }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -45,7 +45,7 @@ export default function Post({ post, morePosts, preview, categories, popularPost
       <HeaderOne postData={morePosts} pClass="header-light header-sticky header-with-shadow"/>
       <HeadTitle pageTitle={post?.title} />
       <PostFormatHandler />
-      <FooterOne categories={categories} tags={tags} authors={authors}/>
+      <FooterOne categories={categories} tags={tags} authors={trendingAuthors}/>
     </>
   )
 }
@@ -63,7 +63,7 @@ export async function getStaticProps({params, preview}) {
   const categories = await getCategories(preview)
   const popularPosts = await getPopularPosts(preview)
   const tags = await getTags(preview)
-  const authors = await getAuthors(preview)
+  const trendingAuthors = await getAuthors({perPage: 6, trending: true})
   const pageViews = await getPageViews(`/posts/${params.slug}`)
 
   return {
@@ -77,7 +77,7 @@ export async function getStaticProps({params, preview}) {
       categories,
       popularPosts,
       tags,
-      authors
+      trendingAuthors: trendingAuthors.data
     },
   }
 }
