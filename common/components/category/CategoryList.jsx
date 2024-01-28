@@ -3,12 +3,12 @@ import Image from "next/image";
 import { SectionTitleTwo } from "../../elements/sectionTitle/SectionTitle";
 import {removeDuplicates, slugify} from '../../utils';
 
-const CategoryList = ({categories}) => {
+const CategoryList = ({categories, showListLink}) => {
     
   return (
     <div className="axil-categories-list axil-section-gap bg-color-grey">
       <div className="container">
-        <SectionTitleTwo title="Trending Topics" btnText="See All Topics" btnUrl="/categories" />
+        {showListLink ? <SectionTitleTwo title="Trending Topics" btnText="See All Topics" btnUrl="/categories" /> : "" }
         <div className="row">
           <div className="col-lg-12">
             {/* Start List Wrapper  */}
