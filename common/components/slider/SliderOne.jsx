@@ -150,7 +150,7 @@ const SliderOne = ({postData}) => {
                             <ul className="post-meta-list">
                               <li>{data.date}</li>
                               {/* <li>{data.post_views}</li> */}
-                              <li>200K Views</li>
+                              {/* <li>200K Views</li> */}
                             </ul>
                           </div>
                         </div>

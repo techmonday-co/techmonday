@@ -1,80 +1,88 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import SocialData from "../data/social/SocialData.json";
-import HeadTitle from "../common/elements/head/HeadTitle";
+import { useEffect } from 'react';
+import { 
+  getHeroPosts,
+  getFeaturedPosts,
+  getPostsByHighLightedCategories,
+  getPosts,
+  getPopularPosts,
+} from '../lib/api/posts'
+import {
+  getCategories,
+} from '../lib/api/categories'
+import {
+  getTags,
+} from '../lib/api/tags'
+import {
+  getAuthors
+} from '../lib/api/authors'
 
-const Maintenance = () => {
-  if (typeof window !== "undefined") {
-    var colorMode = window.localStorage.getItem('color-mode');
-  }
+import HeadTitle from '../common/elements/head/HeadTitle';
+import HeaderOne from '../common/elements/header/HeaderOne';
+import SliderOne from '../common/components/slider/SliderOne';
+import PostSectionOne from '../common/components/post/PostSectionOne';
+import PostSectionTwo from '../common/components/post/PostSectionTwo';
+import PostSectionFour from '../common/components/post/PostSectionFour';
+import CategoryList from '../common/components/category/CategoryList';
+import FooterOne from '../common/elements/footer/FooterOne';
 
-    return (
-        <>
-       
-            <HeadTitle pageTitle="Coming Soon"/>
-            <div className="maintanence-area">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="order-2 order-lg-1 col-lg-6 mt_md--40 mt_sm--40">
-                            <div className="content">
-                                <div className="logo">
-                                    <Link href="/">
-                                        <Image
-                                            className="dark-logo"
-                                            width={153}
-                                            height={40}
-                                            src={(colorMode === "Dark" ? "/images/logo.svg" : "/images/logo.svg") || "/images/logo.svg"}
-                                            alt="Blogar logo"
-                                        />
-                                    </Link>
-                                </div>
-                                <h1 className="title">This project is under construction</h1>
-                                <h5>Stay tuned</h5>
-                                <p>Update on technology coming soon.</p>
-                                <div className="inner d-flex align-items-center flex-wrap">
-                                    <h5 className="follow-title mb--0 mr--20">Follow Us</h5>
-                                    <ul className="social-icon color-tertiary md-size justify-content-start">
-                                        <li>
-                                            <a href={SocialData.fb.url}>
-                                                <i className={SocialData.fb.icon} />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href={SocialData.yt.url}>
-                                                <i className={SocialData.yt.icon} />
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                {/* <form action="#" className="subscription-form">
-                                    <div className="form-group">
-                                        <input type="text" name="subscription-email" placeholder="Enter your email" />
-                                        <button className="axil-button button-rounded"><span>Subscribe</span></button>
-                                    </div>
-                                </form> */}
-                            </div>
-                        </div>
-                        <div className="order-1 order-lg-2 col-lg-5 offset-lg-1"
-                             style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center'
-                             }}>
-                            <div className="thumbnail">
-                                <Image
-                                    width={495}
-                                    height={480}
-                                    src="/images/maintenance.png"
-                                    alt="Coming Soon"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
+export default function Index({ 
+  heroPosts,
+  featuredPosts, 
+  postsByHilightedCategories,
+  categories,
+  posts,
+  popularPosts,
+  tags,
+  trendingAuthors
+ }) {
 
-    );
+  useEffect(() => {
+    // if (window.adsbygoogle) {
+    //   window.adsbygoogle.push({});
+    // }
+  }, [])
+
+  return (
+    <>
+      <HeadTitle pageTitle="Tech Monday" />
+      <HeaderOne postData={heroPosts}/>
+      <SliderOne postData={heroPosts}/>
+      <PostSectionOne postData={featuredPosts}/>
+      <PostSectionTwo postData={postsByHilightedCategories} adBanner={true} />
+      <CategoryList categories={categories}/>
+      <PostSectionFour 
+        postData={posts.data}
+        categories={categories}
+        popularPosts={popularPosts}
+        adBanner={false}
+        contentListLink='/posts'
+        contentListLinkText='ดูบทความทั้งหมด'
+      />
+      <FooterOne categories={categories} tags={tags} authors={trendingAuthors}/>
+    </>
+  )
 }
 
-export default Maintenance;
+export async function getStaticProps({ preview }) {
+  const heroPosts = await getHeroPosts(preview)
+  const featuredPosts = await getFeaturedPosts(preview)
+  const postsByHilightedCategories = await getPostsByHighLightedCategories(preview)
+  const categories = await getCategories(preview)
+  const posts = await getPosts({perPage: 6})
+  const popularPosts = await getPopularPosts(preview)
+  const tags = await getTags(preview)
+  const trendingAuthors = await getAuthors({perPage: 6, trending: true})
+
+  return {
+    props: {
+      heroPosts,
+      featuredPosts,
+      postsByHilightedCategories,
+      categories,
+      posts,
+      popularPosts,
+      tags,
+      trendingAuthors: trendingAuthors.data
+    },
+  }
+}
