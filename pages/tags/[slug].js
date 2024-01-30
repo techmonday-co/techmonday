@@ -48,7 +48,7 @@ export async function getStaticProps({ params, preview }) {
       categories,
       popularPosts,
       tags,
-      trendingAuthors: trendingAuthors.data
+      trendingAuthors
     }
   }
 }

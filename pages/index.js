@@ -82,7 +82,7 @@ export async function getStaticProps({ preview }) {
       posts,
       popularPosts,
       tags,
-      trendingAuthors: trendingAuthors.data
+      trendingAuthors
     },
   }
 }

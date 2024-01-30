@@ -50,7 +50,7 @@ export async function getStaticProps() {
       categories,
       popularPosts,
       tags,
-      trendingAuthors: trendingAuthors.data,
+      trendingAuthors,
       pageCount,
       currentPage,
     }

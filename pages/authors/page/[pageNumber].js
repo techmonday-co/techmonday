@@ -73,10 +73,10 @@ export async function getStaticProps({ params }) {
       categories,
       popularPosts,
       tags,
-      authors: authors.data,
+      authors,
       pageCount,
       currentPage,
-      trendingAuthors: trendingAuthors.data
+      trendingAuthors
     }
   }
 }

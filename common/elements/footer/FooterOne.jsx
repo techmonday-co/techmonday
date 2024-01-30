@@ -91,7 +91,7 @@ const FooterOne = ({categories, tags, authors}) => {
                 <div className="inner">
                   <ul className="ft-menu-list">
                     <li>
-                      <a href="#">Contact Us</a>
+                      <a href="/contact-us">Contact Us</a>
                     </li>
                     <li>
                       <a href="https://www.facebook.com/techmonday.co">Facebook Page</a>
@@ -117,7 +117,7 @@ const FooterOne = ({categories, tags, authors}) => {
                 <Link href="/">
                   <Image
                     className="dark-logo"
-                    src={colorMode === "Dark" ? "/images/logo.svg" : "/images/logo.svg"}
+                    src="/images/logo.svg"
                     alt="Logo Images"
                     height={37}
                     width={141}
@@ -156,21 +156,21 @@ const FooterOne = ({categories, tags, authors}) => {
               <div className="copyright-left">
                 <ul className="mainmenu justify-content-start">
                   <li>
-                    <Link href="/about"
+                    <Link href="/contact-us"
                           className="hover-flip-item-wrapper">
                         <span className="hover-flip-item">
                           <span data-text="Contact Us">Contact Us</span>
                         </span>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/privacy-policy"
                           className="hover-flip-item-wrapper">
                         <span className="hover-flip-item">
                           <span data-text="Privacy Policy">Privacy Policy</span>
                         </span>
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
