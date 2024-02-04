@@ -3,31 +3,19 @@ import SidebarTwo from "../../sidebar/SidebarTwo";
 import PostMetaTwo from "./element/PostMetaTwo";
 import PostComment from "./element/PostComment";
 import PostTagShare from "./element/PostTagShare";
-import PostText from "./content/PostText";
-import PostImage from "./content/PostImage";
 import PostList from "./content/PostList";
+import PostParagraph from "./content/PostParagraph";
 
 const PostFormatVideo = ({ postData, allData, categories, popularPosts}) => {
   function renderPostContent(content) {
     // we are using only the content block at the moment
-    var contentBlocks = content.root.children.map((_block) => {
-      return _block.children
+    return content.root.children.map((block, index) => {
+      if (block.type == 'paragraph-element') {
+        return <PostParagraph key={`paragraph-${index}`} block={block} />
+      } else if (block.type == 'webiny-list') {
+        return <PostList key={`list-${index}`} block={block} />
+      }
     })
-    contentBlocks = [].concat(...contentBlocks)
-    
-    return (
-      <div className="post-content">
-        {contentBlocks.map((contentBlock, index) => {
-          if (contentBlock.type == 'text') {
-            return <PostText key={`content-${index}`} contentBlock={contentBlock} />
-          } else if (contentBlock.type == 'image') {
-            return <PostImage key={`content-${index}`} contentBlock={contentBlock} />
-          } else if (contentBlock.type == 'list') {
-            return <PostList key={`content-${index}`} contentBlock={contentBlock} />
-          }
-        })}
-      </div>
-    )
   }
 
   return (

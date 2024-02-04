@@ -1,8 +1,24 @@
-const PostList = ({contentBlock}) => {
+const PostList = ({block}) => {
+  
+  const renderListItem = (item) => {
+    console.log(item)
+    return (
+      <li>
+        {item.children.map((child, index) => {
+          if (child.type === 'text') {
+            return <span key={`content-${index}`}>{child.text}</span>
+          }
+        })}
+      </li>
+    )
+  }
+
   return <ul>
-    {contentBlock.data.items.map((item, index) => (
-      <li key={`${contentBlock.id}-list-${index}`}>{item}</li>
-    ))}
+    {block.children.map((child, index) => {
+      if (child.type === 'webiny-listitem') {
+        return renderListItem(child)
+      }
+    })}
   </ul>
 }
 

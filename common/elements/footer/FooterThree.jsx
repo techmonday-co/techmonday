@@ -69,7 +69,7 @@ const FooterThree = ({bgColor, darkLogo, lightLogo}) => {
             </div>
             <ul className="mainmenu justify-content-start">
               <li>
-			  <Link href="/contact">
+			  <Link href="/contact-us">
                 <a className="hover-flip-item-wrapper">
                   <span className="hover-flip-item">
                     <span data-text="Contact Us">Contact Us</span>
