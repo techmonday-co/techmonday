@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://techmonday.co
+
+# Sitemaps
+Sitemap: https://techmonday.co/sitemap.xml
