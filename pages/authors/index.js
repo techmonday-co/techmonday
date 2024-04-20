@@ -34,7 +34,7 @@ export default function Index({
 }) {
   return (
     <>
-      <HeadTitle pageTitle="Tech Monday - Authors" />
+      <HeadTitle title="Tech Monday - Authors" />
       <HeaderOne postData={heroPosts}/>
       <div className="axil-post-list-area axil-section-gap bg-color-white">
         <div className="container">

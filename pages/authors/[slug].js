@@ -98,7 +98,7 @@ export default function Author({author, categories, popularPosts, tags, trending
 
   return (
     <>
-      <HeadTitle pageTitle={`${author.name}`} />
+      <HeadTitle title={`${author.name}`} />
       <HeaderOne postData={[]} />
       { renderAuthor() }
       { renderAuthorPosts() }

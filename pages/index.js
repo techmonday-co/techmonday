@@ -44,7 +44,7 @@ export default function Index({
 
   return (
     <>
-      <HeadTitle pageTitle="Tech Monday" />
+      <HeadTitle title="Tech Monday" />
       <HeaderOne postData={heroPosts}/>
       <SliderOne postData={heroPosts}/>
       <PostSectionOne postData={featuredPosts}/>

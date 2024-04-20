@@ -35,7 +35,7 @@ export default function Post({ post, morePosts, preview, categories, popularPost
   return (
     <>
       <HeaderOne postData={morePosts} pClass="header-light header-sticky header-with-shadow"/>
-      <HeadTitle pageTitle={post?.title} />
+      <HeadTitle title={post?.title} />
       <PostFormatHandler />
       <FooterOne categories={categories} tags={tags} authors={trendingAuthors}/>
     </>

@@ -16,7 +16,7 @@ export default function Tag({tag, categories, popularPosts, tags, trendingAuthor
 
   return (
     <>
-      <HeadTitle pageTitle={`${tag.name}`} />
+      <HeadTitle title={`${tag.name}`} />
       <HeaderOne postData={[]} />
       <BreadcrumbOne title={tag.name} />
       <div className="axil-post-list-area axil-section-gap bg-color-white">

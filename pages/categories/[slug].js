@@ -14,7 +14,7 @@ const Category = ({ category, categories, popularPosts, tags, trendingAuthors })
 	
 	return (
 		<>
-      <HeadTitle pageTitle={`${category.name}`} />
+      <HeadTitle title={`${category.name}`} />
       <HeaderOne postData={[]} />
       <BreadcrumbOne title={category.name} />
       <div className="axil-post-list-area axil-section-gap bg-color-white">
