@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { FacebookShare } from 'react-share-kit';
 import { slugify } from "../../../../utils";
+
+const URL = "https://techmonday.co";
 
 const PostTagShare = ({postTags}) => {
   return (
@@ -20,6 +23,9 @@ const PostTagShare = ({postTags}) => {
           </a>
         </div>
         <ul className="social-icon icon-rounded-transparent md-size">
+          <li>
+            <FacebookShare url={`${URL}/posts/${postTags.slug}`} round={true} size={40} />
+          </li>
           <li>
             <a href="https://facebook.com/">
               <i className="fab fa-facebook-f" />

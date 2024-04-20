@@ -70,6 +70,7 @@ export async function getStaticProps({params, preview}) {
     props: {
       preview: preview ?? null,
       post: {
+        slug: params.slug,
         ...data.post.data,
         ...pageViews
       },
