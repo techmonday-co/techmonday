@@ -27,11 +27,6 @@ const PostTagShare = ({postTags}) => {
             <FacebookShare url={`${URL}/posts/${postTags.slug}`} round={true} size={40} />
           </li>
           <li>
-            <a href="https://facebook.com/">
-              <i className="fab fa-facebook-f" />
-            </a>
-          </li>
-          <li>
             <a href="https://instagram.com">
               <i className="fab fa-instagram" />
             </a>

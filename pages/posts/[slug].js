@@ -1,12 +1,5 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import MoreStories from "../../components/more-stories"
-import SectionSeparator from "../../components/section-separator"
-import Layout from '../../components/layout'
 import { getPostBySlug, getAllPostsWithSlug, getPopularPosts } from '../../lib/api/posts'
 import { getAuthors } from '../../lib/api/authors';
 import { getCategories } from '../../lib/api/categories';
@@ -18,7 +11,6 @@ import HeadTitle from '../../common/elements/head/HeadTitle';
 import PostFormatStandard from '../../common/components/post/format/PostFormatStandard';
 import PostFormatVideo from '../../common/components/post/format/PostFormatVideo';
 import FooterOne from '../../common/elements/footer/FooterOne';
-
 
 export default function Post({ post, morePosts, preview, categories, popularPosts, trendingAuthors, tags }) {
   const router = useRouter()
