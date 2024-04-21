@@ -15,12 +15,13 @@ const PostTagShare = ({postTags}) => {
         )) : <></>}
       </div>
       <div className="social-share-block">
-        <div className="post-like">
+        {/* <div className="post-like">
           <link href="#" />
           <a>
             <i className="fal fa-thumbs-up" />
             <span>2.2k Like</span>
           </a>
+        </div> */}
         </div>
         <ul className="social-icon icon-rounded-transparent md-size">
           <li>
