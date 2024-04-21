@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { FacebookShare, LineShare, LinkedinShare, TwitterShare } from 'react-share-kit';
 import { slugify } from "../../../../utils";
+
+const URL = "https://techmonday.co";
 
 const PostTagShare = ({postTags}) => {
   return (
@@ -13,32 +16,40 @@ const PostTagShare = ({postTags}) => {
       </div>
       <div className="social-share-block">
         <div className="post-like">
-          <link href="#" />
+          {/* <link href="#" />
           <a>
             <i className="fal fa-thumbs-up" />
             <span>2.2k Like</span>
-          </a>
+          </a> */}
         </div>
         <ul className="social-icon icon-rounded-transparent md-size">
           <li>
-            <a href="https://facebook.com/">
-              <i className="fab fa-facebook-f" />
-            </a>
+            <FacebookShare
+              url={`${URL}/posts/${postTags.slug}`}
+              round={true}
+              size={40}
+            />
           </li>
           <li>
-            <a href="https://instagram.com">
-              <i className="fab fa-instagram" />
-            </a>
+            <TwitterShare
+              url={`${URL}/posts/${postTags.slug}`}
+              round={true}
+              size={40}
+            />
           </li>
           <li>
-            <a href="https://twitter.com">
-              <i className="fab fa-twitter" />
-            </a>
+            <LinkedinShare
+              url={`${URL}/posts/${postTags.slug}`}
+              round={true}
+              size={40}
+            />
           </li>
           <li>
-            <a href="https://linkedin.com">
-              <i className="fab fa-linkedin-in" />
-            </a>
+            <LineShare
+              url={`${URL}/posts/${postTags.slug}`}
+              round={true}
+              size={40}
+            />
           </li>
         </ul>
       </div>

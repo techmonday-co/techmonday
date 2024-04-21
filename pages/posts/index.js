@@ -13,7 +13,7 @@ import PostLayoutTwo from '../../common/components/post/layout/PostLayoutTwo';
 export default function Posts({posts, categories, popularPosts, tags, trendingAuthors, pageCount, currentPage}) {
   return (
     <>
-      <HeadTitle pageTitle="All Podcasts" />
+      <HeadTitle title="All Podcasts" />
       <HeaderOne postData={[]} pClass="header-light header-sticky header-with-shadow" />
       <div className="axil-post-list-area axil-section-gap bg-color-white">
         <div className="container">

@@ -11,7 +11,7 @@ const Maintenance = () => {
     return (
         <>
        
-            <HeadTitle pageTitle="Coming Soon"/>
+            <HeadTitle title="Coming Soon"/>
             <div className="maintanence-area">
                 <div className="container">
                     <div className="row align-items-center">

@@ -21,7 +21,7 @@ const About = ({
 }) => {
   return (
     <>
-      <HeadTitle pageTitle="Tech Monday | Contact Us" />
+      <HeadTitle title="Tech Monday | Contact Us" />
       <HeaderOne postData={heroPosts} pClass="header-light header-sticky header-with-shadow" />
       <BreadcrumbTwo 
         title= "Contact Us" 
