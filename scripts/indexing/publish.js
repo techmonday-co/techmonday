@@ -35,7 +35,7 @@ jwtClient.authorize(function(err, tokens) {
   //   }
   // };
 
-  // // Step 8: Make the request and handle the response
+  // // Make the request and handle the response
   // request(options, function (error, response, body) {
   //   console.log(body);
   // });
@@ -57,6 +57,7 @@ jwtClient.authorize(function(err, tokens) {
     console.log(body);
   });
 
+  // Add site to Search Console, we need to add this before we can submit sitemaps
   // var siteUrl = encodeURIComponent("https://techmonday.co");
   // var feedpath = encodeURIComponent("https://techmonday.co/sitemap.xml");
   // let options = {
