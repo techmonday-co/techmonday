@@ -21,7 +21,11 @@ const About = ({
 }) => {
   return (
     <>
-      <HeadTitle title="Tech Monday | Contact Us" />
+      <HeadTitle
+        title="Contact Us | Tech Monday"
+        description="Tech Monday เรามุ่งมั่นที่จะเชื่อมโยงผู้เชี่ยวชาญและผู้นำความคิดในอุตสาหกรรมเทคโนโลยี เราเป็นแพลตฟอร์มสื่อที่ให้บริการข้อมูลและความรู้เกี่ยวกับเทคโนโลยีล่าสุด นวัตกรรม และเรื่องราวขององค์กรเทคโนโลยีชั้นนำ"
+        image="url('images/bg/contact-us.jpg')"
+      />
       <HeaderOne postData={heroPosts} pClass="header-light header-sticky header-with-shadow" />
       <BreadcrumbTwo 
         title= "Contact Us" 

@@ -44,7 +44,10 @@ export default function Index({
 
   return (
     <>
-      <HeadTitle title="Tech Monday" />
+      <HeadTitle
+        title="Tech Monday"
+        description="Tech Monday เรามุ่งมั่นที่จะเชื่อมโยงผู้เชี่ยวชาญและผู้นำความคิดในอุตสาหกรรมเทคโนโลยี เราเป็นแพลตฟอร์มสื่อที่ให้บริการข้อมูลและความรู้เกี่ยวกับเทคโนโลยีล่าสุด นวัตกรรม และเรื่องราวขององค์กรเทคโนโลยีชั้นนำ"
+      />
       <HeaderOne postData={heroPosts}/>
       <SliderOne postData={heroPosts}/>
       <PostSectionOne postData={featuredPosts}/>
